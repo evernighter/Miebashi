@@ -9,8 +9,8 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="沖繩聖誕旅">
-    <!-- Updated to local path -->
-    <link rel="apple-touch-icon" href="./assets/images/momonga.jpg">
+    <!-- Updated to local path for iPhone Home Screen Icon -->
+    <link rel="apple-touch-icon" href="assets/images/momonga.jpg">
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -108,7 +108,7 @@
 
         const Momonga = ({ className, pose }) => {
             // Priority: Local file -> External original URL -> Fallback URL
-            const [imgSrc, setImgSrc] = useState("./assets/images/momonga.jpg");
+            const [imgSrc, setImgSrc] = useState("assets/images/momonga.jpg");
             
             // Fallback: The original URL you provided
             const fallbackSrc = "https://ugc-media.4gamers.com.tw/puku-prod-zh/member/NmCSJaYmwo59kc1EkxogqYAl-wI/mondou/d28bec82-2186-4127-8f26-3099ea9334df.jpg"; 
