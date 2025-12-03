@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    
+    <!-- iOS PWA Settings -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="沖繩聖誕旅">
+    
+    <!-- Home Screen Icon (Using the Momonga image) -->
+    <link rel="apple-touch-icon" href="https://ugc-media.4gamers.com.tw/puku-prod-zh/member/NmCSJaYmwo59kc1EkxogqYAl-wI/mondou/d28bec82-2186-4127-8f26-3099ea9334df.jpg">
+
+    <title>Okinawa Pink Christmas</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+      body {
+        font-family: 'M PLUS Rounded 1c', sans-serif;
+        background-color: #FDF2F8; /* pink-50 */
+        -webkit-tap-highlight-color: transparent;
+        /* Safe area handling for iPhones with notches */
+        padding-top: env(safe-area-inset-top);
+        padding-bottom: env(safe-area-inset-bottom);
+      }
+      /* Hide scrollbar for cleaner mobile look */
+      ::-webkit-scrollbar {
+        width: 0px;
+        background: transparent;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.555.0"
+  }
+}
+</script>
+</head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
