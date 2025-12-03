@@ -9,7 +9,8 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="沖繩聖誕旅">
-    <link rel="apple-touch-icon" href="https://ugc-media.4gamers.com.tw/puku-prod-zh/member/NmCSJaYmwo59kc1EkxogqYAl-wI/mondou/d28bec82-2186-4127-8f26-3099ea9334df.jpg">
+    <!-- Updated to local path -->
+    <link rel="apple-touch-icon" href="./assets/images/momonga.jpg">
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -106,19 +107,19 @@
         // --- Components ---
 
         const Momonga = ({ className, pose }) => {
-            const [imgSrc, setImgSrc] = useState("https://ugc-media.4gamers.com.tw/puku-prod-zh/member/NmCSJaYmwo59kc1EkxogqYAl-wI/mondou/d28bec82-2186-4127-8f26-3099ea9334df.jpg");
-            
-            // Fallback image in case the main one fails or is blocked
-            const fallbackSrc = "https://i.pinimg.com/736x/28/e9/63/28e9636a0cb30959ce74eb3a15c3260c.jpg"; 
+            // Priority: Local file -> Remote file (Fallback)
+            const [imgSrc, setImgSrc] = useState("./assets/images/momonga.jpg");
+            const remoteFallback = "https://ugc-media.4gamers.com.tw/puku-prod-zh/member/NmCSJaYmwo59kc1EkxogqYAl-wI/mondou/d28bec82-2186-4127-8f26-3099ea9334df.jpg";
 
             return (
                 <img 
                     src={imgSrc} 
                     alt="Chiikawa Momonga"
-                    referrerPolicy="no-referrer"
                     onError={(e) => {
                         e.currentTarget.onerror = null; // Prevent infinite loop
-                        setImgSrc(fallbackSrc);
+                        if (imgSrc !== remoteFallback) {
+                            setImgSrc(remoteFallback);
+                        }
                     }}
                     className={`${className} rounded-full object-cover border-2 border-white shadow-sm bg-white`}
                 />
