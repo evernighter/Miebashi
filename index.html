@@ -105,13 +105,25 @@
 
         // --- Components ---
 
-        const Momonga = ({ className, pose }) => (
-            <img 
-                src="https://ugc-media.4gamers.com.tw/puku-prod-zh/member/NmCSJaYmwo59kc1EkxogqYAl-wI/mondou/d28bec82-2186-4127-8f26-3099ea9334df.jpg" 
-                alt="Chiikawa Momonga"
-                className={`${className} rounded-full object-cover border-2 border-white shadow-sm bg-white`}
-            />
-        );
+        const Momonga = ({ className, pose }) => {
+            const [imgSrc, setImgSrc] = useState("https://ugc-media.4gamers.com.tw/puku-prod-zh/member/NmCSJaYmwo59kc1EkxogqYAl-wI/mondou/d28bec82-2186-4127-8f26-3099ea9334df.jpg");
+            
+            // Fallback image in case the main one fails or is blocked
+            const fallbackSrc = "https://i.pinimg.com/736x/28/e9/63/28e9636a0cb30959ce74eb3a15c3260c.jpg"; 
+
+            return (
+                <img 
+                    src={imgSrc} 
+                    alt="Chiikawa Momonga"
+                    referrerPolicy="no-referrer"
+                    onError={(e) => {
+                        e.currentTarget.onerror = null; // Prevent infinite loop
+                        setImgSrc(fallbackSrc);
+                    }}
+                    className={`${className} rounded-full object-cover border-2 border-white shadow-sm bg-white`}
+                />
+            );
+        };
 
         const Snowflakes = () => (
             <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden" aria-hidden="true">
